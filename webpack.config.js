@@ -12,5 +12,15 @@ module.exports = {
               query: { presets:['react'] }
             }
         ]
+    },
+    devServer: {
+        historyApiFallback: true,
+        contentBase: './',
+        proxy: {
+            '/login*': {
+                target: 'http://localhost:9090/',
+                secure: false,
+            }
+        }
     }
 };
